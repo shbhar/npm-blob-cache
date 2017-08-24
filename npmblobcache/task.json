@@ -1,0 +1,64 @@
+{
+  "id": "cbf7c0e0-809a-11e7-b9a5-277ec85ddd9a",
+  "name": "npmblobcache",
+  "friendlyName": "npm-blob-cache",
+  "description": "npm blob cache",
+  "author": "Shitij Bhargava",
+  "helpMarkDown": "Replace with markdown to show in help",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "npmblobcache $(message)",
+  "inputs": [
+    {
+      "name": "cwd",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Current working directory when npmblobcache is run."
+    },
+    {
+      "name": "packageJsonPath",
+      "type": "filePath",
+      "label": "package.json path",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "package.json for npm"
+    },
+    {
+      "name": "nodeModulesPath",
+      "type": "filePath",
+      "label": "node_modules path",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "node_modules directory"
+    },
+    {
+      "name": "npmInstallCommand",
+      "type": "string",
+      "label": "npm install command",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The command with arguments for restoring packages"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "sample.js",
+      "argumentFormat": ""
+    },
+    "PowerShell3": {
+      "target": "sample.ps1"
+    }
+  }
+}
