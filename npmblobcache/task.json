@@ -4,7 +4,7 @@
   "friendlyName": "npm-blob-cache",
   "description": "npm blob cache",
   "author": "Shitij Bhargava",
-  "helpMarkDown": "Replace with markdown to show in help",
+  "helpMarkDown": "A utility to cache npm packages in an Azure storage blob. Useful for speeding up 'npm install' on externally managed build agents.",
   "category": "Utility",
   "visibility": [
     "Build",
