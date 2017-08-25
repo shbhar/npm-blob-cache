@@ -18,15 +18,7 @@
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "npmblobcache $(message)",
-  "inputs": [
-    {
-      "name": "cwd",
-      "type": "filePath",
-      "label": "Working Directory",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "Current working directory when npmblobcache is run."
-    },
+  "inputs": [ 
     {
       "name": "packageJsonPath",
       "type": "filePath",
@@ -36,20 +28,36 @@
       "helpMarkDown": "package.json for npm"
     },
     {
-      "name": "nodeModulesPath",
-      "type": "filePath",
-      "label": "node_modules path",
-      "defaultValue": "",
-      "required": true,
-      "helpMarkDown": "node_modules directory"
-    },
-    {
       "name": "npmInstallCommand",
       "type": "string",
       "label": "npm install command",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The command with arguments for restoring packages"
+    },
+    {
+      "name": "storageAccountName",
+      "type": "string",
+      "label": "Storage account name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Storage account name"
+    },
+    {
+      "name": "storageAccountKey",
+      "type": "string",
+      "label": "Storage account key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Storage account key"
+    },
+    {
+      "name": "containerName",
+      "type": "string",
+      "label": "Storage container name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Storage container name"
     }
   ],
   "execution": {

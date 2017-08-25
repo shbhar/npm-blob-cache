@@ -7,7 +7,6 @@ param()
 try {
     #Get input variables
     $packageJsonPath = Get-VstsInput -Name packageJsonPath -Require
-    $nodeModulesPath = Get-VstsInput -Name nodeModulesPath -Require
     $npmInstallCommand = Get-VstsInput -Name npmInstallCommand -Require
     $storageAccountName = Get-VstsInput -Name storageAccountName -Require
     $storageAccountKey = Get-VstsInput -Name storageAccountKey -Require
@@ -25,7 +24,7 @@ try {
 
     try
     {   $blobExists = "true";
-        Get-AzureStorageBlobContent -Blob $packageJsonHash -Destination $nodeModulesPath -Container $containerName -Context $ctx -ErrorAction Stop
+        Get-AzureStorageBlobContent -Blob $packageJsonHash -Destination $packageJsonDir\\"node_modules.zip" -Container $containerName -Context $ctx -ErrorAction Stop
     }
     catch [Microsoft.WindowsAzure.Commands.Storage.Common.ResourceNotFoundException]
     {
@@ -35,8 +34,9 @@ try {
 
     if($blobExists -eq "true")
     {
-        #unpack at location
-        [System.IO.Compression.ZipFile]::ExtractToDirectory("$nodeModulesPath/$packageJsonHash", $nodeModulesPath)
+        #renaming since node_modules archive exists and folder with same name cannnot be createds
+        #Rename-Item "$packageJsonDir\\node_modules" "$packageJsonDir\\node_modules.zip"
+        [System.IO.Compression.ZipFile]::ExtractToDirectory("$packageJsonDir\\node_modules.zip", $packageJsonDir)
     }
     else
     {
